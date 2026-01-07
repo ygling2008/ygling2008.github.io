@@ -23,6 +23,130 @@
             --shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+            margin-top: -40px;
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+
+        .nav-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding: 0 20px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .social-icon:hover {
+            fill: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Hiring Badge */
+        .hiring-badge {
+            display: inline-block;
+            background: #ef4444;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            vertical-align: middle;
+            margin-left: 12px;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        /* Research Interests */
+        .interests-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .interests-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .interests-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .interest-tag {
+            background: var(--bg-accent);
+            color: var(--primary-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .interest-tag:hover {
+            border-color: var(--primary-color);
+            background: white;
+        }
+
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #d1d5db;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -381,6 +505,15 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#biography" class="nav-link">Biography</a>
+            <a href="#publications" class="nav-link">Publications</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#awards" class="nav-link">Awards</a>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- Header Section -->
         <header class="header-card">
@@ -400,20 +533,31 @@
         </header>
 
         <!-- Biography Section -->
-        <section class="section-card">
+        <section class="section-card" id="biography">
             <h2 class="section-title">Biography</h2>
             <div class="biography">
-<p>I am a Research Scientist at <a href="https://roboticsx.tencent.com/">Tencent Robotics X</a>, currently focused on Embodied AI and the multi-modal understanding of the dynamic (4D) physical world. My goal is to enable robots to perceive, reason, and interact seamlessly with complex environments and humans.</p>
+<p>I am a Research Scientist at <a href="https://roboticsx.tencent.com/">Tencent</a>, currently focused on Embodied AI and the multi-modal understanding of the dynamic (4D) physical world. My goal is to enable robots to perceive, reason, and interact seamlessly with complex environments and humans.</p>
 <p style="margin-top: 12px;">I obtained my Ph.D. from the Robotics Institute at <a href="https://hkust.edu.hk/"><strong>HKUST</strong></a> in 2017, advised by Prof. Shaojie Shen. My doctoral research centered on robust state estimation, including visual odometry, 3D mapping, and SLAM. Prior to this, I honed my engineering skills at <a href="https://www.dji.com/">DJI</a>, developing vision systems for UAVs, and conducted research on multimedia signal processing at <a href="https://www.mtrec.ust.hk/"><strong>MTrec</strong></a> under IEEE Fellow Prof. Oscar C. Au.</p>
 <p style="margin-top: 12px;">My technical roots lie in competitive programming (<a href="https://icpc.global/">ACM-ICPC</a>), which instilled in me a rigorous approach to problem-solving. Today, I combine that algorithmic discipline with deep learning to solve the next generation of challenges in robotic perception and interaction.</p>
             </div>
-            <div class="highlight-box">
-                <p>I now lead the Multimodal Perception Group at Tencent Robotics X Lab. We are looking for exceptional talent — Ph.D. and Master’s students who are self-motivated and eager to define the future of robotics. If you are interested in joining us to work on ground-breaking research, please feel free to contact me via email.</p>
+            
+            <div class="interests-section">
+                <h3 class="interests-title">Research Interests</h3>
+                <div class="interests-grid">
+                    <span class="interest-tag">Embodied AI</span>
+                    <span class="interest-tag">Multi-modal Understanding</span>
+                    <span class="interest-tag">Robotic Perception</span>
+                    <span class="interest-tag">Robot Learning</span>
+                    <span class="interest-tag">Human-Robot Interaction</span>
+                </div>
+            </div>
+
+            <div class="highlight-box">                <p>I now lead the Multimodal Perception Group at Tencent Robotics X Lab. We are looking for exceptional talent — Ph.D. and Master’s students who are self-motivated and eager to define the future of robotics. If you are interested in joining us to work on ground-breaking research, please feel free to contact me via email.</p>
             </div>
         </section>
 
         <!-- Publications Section -->
-        <section class="section-card">
+        <section class="section-card" id="publications">
             <h2 class="section-title">Selected Publications</h2>
             <p class="pub-note">(*equal contribution, &#9993; corresponding author)</p>
             <ol class="publication-list">
@@ -521,7 +665,7 @@
         </section>
 
         <!-- Work Experience Section -->
-        <section class="section-card">
+        <section class="section-card" id="experience">
             <h2 class="section-title">Work Experience</h2>
             <ul class="experience-list">
 <li class="experience-item">
@@ -540,7 +684,7 @@
         </section>
 
         <!-- Awards Section -->
-        <section class="section-card">
+        <section class="section-card" id="awards">
             <h2 class="section-title">Scholarships &amp; Awards</h2>
             <div class="awards-grid">
 <div class="award-item">
@@ -582,5 +726,11 @@
             </div>
         </section>
     </div>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Yonggen Ling. All rights reserved.</p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">Last updated: January 2025</p>
+        </div>
+    </footer>
 </body>
 </html>
