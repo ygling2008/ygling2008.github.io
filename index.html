@@ -450,24 +450,44 @@
         }
 
         .pub-links {
-            margin-top: 10px;
+            display: inline-flex;
+            flex: 0 0 auto;
+            gap: 8px;
+            margin-left: 12px;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .pub-venue.has-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
         }
 
         .pub-links a {
-            display: inline-block;
-            color: var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            color: var(--primary-dark);
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-right: 12px;
-            padding: 4px 10px;
-            background: var(--bg-accent);
-            border-radius: 6px;
-            transition: background 0.2s;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 11px;
+            background: #ffffff;
+            border: 1px solid #bfdbfe;
+            border-radius: 999px;
+            box-shadow: 0 1px 2px rgb(37 99 235 / 0.08);
+            transition: color 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
         }
 
-        .pub-links a:hover {
-            background: #dbeafe;
+        .pub-links a:hover,
+        .pub-links a:focus-visible {
+            color: #ffffff;
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgb(37 99 235 / 0.22);
+            transform: translateY(-1px);
+            outline: none;
         }
 
         /* Experience List */
@@ -645,6 +665,16 @@
             <h2 class="section-title">Selected Publications</h2>
             <p class="pub-note">(*equal contribution, &#9993; corresponding author)</p>
             <ol class="publication-list">
+                <li>
+                    <div class="pub-authors">Tencent Robotics X, Hy Vision Team and Futian Laboratory</div>
+                    <div class="pub-title">Hy-Embodied-VLM-1.0: Efficient Physical-World Agents</div>
+                    <div class="pub-venue has-links">Technical Report, 2026 <span class="pub-links"><a href="https://arxiv.org/abs/2607.12894" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/Tencent-Hunyuan/HY-Embodied/tree/master" target="_blank" rel="noopener noreferrer">Code</a><a href="https://huggingface.co/tencent/Hy-Embodied-VLM-1.0" target="_blank" rel="noopener noreferrer">Model</a></span></div>
+                </li>                 
+                <li>
+                    <div class="pub-authors">Ao Li*, <strong>Yonggen Ling</strong>*, Yiyang Lin, Yuji Wang， Yong Deng and Yansong Tang</div>
+                    <div class="pub-title">TAIHRI: Task-Aware 3D Human Keypoints Localization for Close-Range Human-Robot Interaction</div>
+                    <div class="pub-venue">in <em>European Conference on Computer Vision</em> <strong>ECCV</strong>, 2026</div>
+                </li> 
                 <li>
                     <div class="pub-authors">Haitao Lin, Hanyang Yu, Jingshun Huang, He Zhang, <strong>Yonggen Ling</strong>, Ping Tan, Xiangyang Xue and Yanwei Fu</div>
                     <div class="pub-title">Universal Pose Pretraining for Generalizable Vision-Language-Action Policies</div>
