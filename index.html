@@ -818,7 +818,7 @@
 
         <!-- Work Experience Section -->
         <section class="section-card" id="experience">
-            <h2 class="section-title">Previous Work Experience</h2>
+            <h2 class="section-title">Work Experience</h2>
             <ul class="experience-list">
                 <li class="experience-item">
                     <div class="exp-title">Intern in Vision Lab, <a href="https://www.dji.com/">DJI</a></div>
@@ -833,9 +833,25 @@
     </div>
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 Yonggen Ling. All rights reserved.</p>
-            <p style="margin-top: 8px; font-size: 0.85rem;">Last updated: July 2026</p>
+            <p>&copy; <span id="copyright-year"></span> Yonggen Ling. All rights reserved.</p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">Last updated: <span id="last-updated"></span></p>
         </div>
     </footer>
+    <script>
+        (function () {
+            var d = new Date(document.lastModified);
+            if (isNaN(d.getTime())) d = new Date();
+            var yearEl = document.getElementById("copyright-year");
+            var updatedEl = document.getElementById("last-updated");
+            if (yearEl) yearEl.textContent = String(d.getFullYear());
+            if (updatedEl) {
+                updatedEl.textContent = d.toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric"
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
